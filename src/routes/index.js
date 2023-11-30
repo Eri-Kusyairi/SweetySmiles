@@ -2,7 +2,11 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+<<<<<<< HEAD
 import { Home,Profile,Exercises,Search,AddExercises } from '../pages';
+=======
+import { Home,Profile,Exercises } from '../pages';
+>>>>>>> 2e48899d8d242a14227957853f46c263c4238d3d
 import { Bag2, Home2, Bookmark, AlignHorizontally, UserAdd, User } from 'iconsax-react-native';
 
 const Stack = createNativeStackNavigator();
@@ -51,8 +55,11 @@ const MainApp = () => {
     return (
       <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
+<<<<<<< HEAD
         <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
         <Stack.Screen name="AddExercises" component={AddExercises} options={{ headerShown: false }} />
+=======
+>>>>>>> 2e48899d8d242a14227957853f46c263c4238d3d
       </Stack.Navigator>
     )
   }
