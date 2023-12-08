@@ -9,12 +9,16 @@ import {
     ScrollView,
     TouchableWithoutFeedback
 } from "react-native";
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
 import { Category, DirectboxSend, Image, Notification, SearchNormal1 } from 'iconsax-react-native'
 import { fontType } from '../../theme';
 
 
 const AddExercises = () => {
+<<<<<<< HEAD
     const [loading, setLoading] = useState(false);
     const [exercisesData, setexercisesData] = useState({
         title: "",
@@ -47,6 +51,16 @@ const AddExercises = () => {
           console.log(e);
         }
       };
+=======
+    const [exercisesData, setexercisesData] = useState({
+        title: "",
+        description: "",
+        category: {},
+        durasi: "",
+        totalLikes: 0,
+        totalComments: 0,
+    });
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
     const handleChange = (key, value) => {
         setexercisesData({
         ...exercisesData,
@@ -56,7 +70,11 @@ const AddExercises = () => {
     const [image, setImage] = useState(null);
     const navigation = useNavigation();
     return (
+<<<<<<< HEAD
         <View style={{flex:1}}>
+=======
+        <View>
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
             <View style={{flexDirection: 'row',alignItems: 'center',padding: 20, justifyContent:'flex-end', gap: 28}}>
                     <TouchableWithoutFeedback onPress={() => navigation.navigate("Search")}>
                         <SearchNormal1 size="27" color="#2D2C2C"/>
@@ -94,6 +112,7 @@ const AddExercises = () => {
                 <View style={textInput.boardDescription}>
                     <TextInput
                     placeholder="Durasi Latihan."
+<<<<<<< HEAD
                     value={exercisesData.duration}
                     onChangeText={(text) => handleChange("duration", text)}
                     placeholderTextColor={'gray'}
@@ -106,13 +125,21 @@ const AddExercises = () => {
                     placeholder="URL."
                     value={exercisesData.image}
                     onChangeText={(text) => setImage(text)}
+=======
+                    value={exercisesData.durasi}
+                    onChangeText={(text) => handleChange("description", text)}
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
                     placeholderTextColor={'gray'}
                     multiline
                     style={textInput.title}
                     />
                 </View>
             </ScrollView>
+<<<<<<< HEAD
             <TouchableOpacity onPress={handleUpload} style={{backgroundColor: '#3693F4',padding: 15, flexDirection: 'row',alignItems: 'center', gap: 12, marginHorizontal: 120, borderRadius: 14, position: 'absolute', top: 670,left:192}}>
+=======
+            <TouchableOpacity style={{backgroundColor: '#3693F4',padding: 15, flexDirection: 'row',alignItems: 'center', gap: 12, marginHorizontal: 120, borderRadius: 14, position: 'absolute', top: 670,left:192}}>
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
                 <DirectboxSend variant="Bold" color="white" size={'30'}/>
             </TouchableOpacity>
         </View>
