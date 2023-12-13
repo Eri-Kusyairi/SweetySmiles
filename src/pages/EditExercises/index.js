@@ -10,11 +10,17 @@ import {
     TouchableWithoutFeedback,
     ActivityIndicator
 } from "react-native";
+<<<<<<< HEAD
 import ImagePicker from 'react-native-image-crop-picker';
 import firestore from '@react-native-firebase/firestore';
 import { Category, DirectboxSend, Image, Notification, SearchNormal1,Add,AddSquare } from 'iconsax-react-native'
 import FastImage from "react-native-fast-image";
 import { fontType } from "../../theme";
+=======
+import axios from 'axios';
+import { Category, DirectboxSend, Image, Notification, SearchNormal1 } from 'iconsax-react-native'
+import FastImage from 'react-native-fast-image';
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
 const EditExercises = ({route}) => {
     const {exercisesId} = route.params;
     const [exercisesData, setexercisesData] = useState({
@@ -32,6 +38,7 @@ const EditExercises = ({route}) => {
       };
       const [image, setImage] = useState(null);
       const navigation = useNavigation();
+<<<<<<< HEAD
       const [oldImage, setOldImage] = useState(null);
       const [loading, setLoading] = useState(true);
       useEffect(() => {
@@ -101,6 +108,52 @@ const EditExercises = ({route}) => {
           navigation.navigate('Excercises', {exercisesId});
         } catch (error) {
           console.log(error);
+=======
+      const [loading, setLoading] = useState(true);
+      useEffect(() => {
+        getPostById();
+      }, [exercisesId]);
+    
+      const getPostById = async () => {
+        try {
+          const response = await axios.get(
+            `https://656c291ce1e03bfd572e06b1.mockapi.io/exercises/${exercisesId}`,
+          );
+          setexercisesData({
+            title : response.data.title,
+            description : response.data.description,
+            duration : response.data.duration,
+            image : response.data.image,
+          })
+        setImage(response.data.image)
+          setLoading(false);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      const handleUpdate = async () => {
+        setLoading(true);
+        try {
+          await axios
+            .put(`https://656c291ce1e03bfd572e06b1.mockapi.io/exercises/${exercisesId}`, {
+              title: exercisesData.title,
+              image,
+              description: exercisesData.description,
+              duration : exercisesData.duration,
+              totalComments: exercisesData.totalComments,
+              totalLikes: exercisesData.totalLikes,
+            })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+          setLoading(false);
+          navigation.navigate('Exercises');
+        } catch (e) {
+          console.log(e);
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
         }
       };
     return (
@@ -114,6 +167,7 @@ const EditExercises = ({route}) => {
                     </TouchableWithoutFeedback>
                 </View>
             <ScrollView>
+<<<<<<< HEAD
             {image ? (
           <View style={{position: 'relative'}}>
             <FastImage
@@ -166,6 +220,13 @@ const EditExercises = ({route}) => {
             </View>
           </TouchableOpacity>
         )}
+=======
+                <TouchableOpacity>
+                    <View style={{padding: 120, marginHorizontal: 30,marginVertical: 10}}>
+                        <Image variant="Bold" color="#D1D1D1" size={'90'}/>
+                    </View>
+                </TouchableOpacity>
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
                 <View style={textInput.board}>
                     <TextInput
                     placeholder="Nama Latihan"

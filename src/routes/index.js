@@ -2,8 +2,23 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+<<<<<<< HEAD
 import { Home,Profile,Exercises,Search,AddExercises,DetailExercises,Login,Register,EditExercises } from '../pages';
 import { Bag2, Home2, Bookmark, AlignHorizontally, UserAdd, User } from 'iconsax-react-native';
+=======
+<<<<<<< HEAD
+import { Home,Profile,Exercises,Search,AddExercises,DetailExercises,EditExercises } from '../pages';
+import { Bag2, Home2, Bookmark, AlignHorizontally, UserAdd, User } from 'iconsax-react-native';
+=======
+<<<<<<< HEAD
+import { Home,Profile,Exercises,Search,AddExercises } from '../pages';
+=======
+import { Home,Profile,Exercises } from '../pages';
+>>>>>>> 2e48899d8d242a14227957853f46c263c4238d3d
+import { Bag2, Home2, Bookmark, AlignHorizontally, UserAdd, User } from 'iconsax-react-native';
+
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +36,15 @@ const MainApp = () => {
           ),
           headerShown: false,
         }} />
+<<<<<<< HEAD
           <Tab.Screen name="Exercises" component={Exercises} options={{
+=======
+<<<<<<< HEAD
+          <Tab.Screen name="Exercises" component={Exercises} options={{
+=======
+          <Tab.Screen name="Progress" component={Exercises} options={{
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
           tabBarLabel: 'Exercises',
           tabBarIcon: ({focused, color}) => (
             <AlignHorizontally
@@ -48,14 +71,30 @@ const MainApp = () => {
   }
   const Router = () => {
     return (
+<<<<<<< HEAD
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
+=======
+      <Stack.Navigator initialRouteName="Splash">
+        <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
+<<<<<<< HEAD
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
         <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
         <Stack.Screen name="AddExercises" component={AddExercises} options={{ headerShown: false }} />
         <Stack.Screen name="EditExercises" component={EditExercises} options={{ headerShown: false }} />
         <Stack.Screen name="DetailExercises" component={DetailExercises} options={{ headerShown: false }} />
+<<<<<<< HEAD
         <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+=======
+=======
+<<<<<<< HEAD
+        <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
+        <Stack.Screen name="AddExercises" component={AddExercises} options={{ headerShown: false }} />
+=======
+>>>>>>> 2e48899d8d242a14227957853f46c263c4238d3d
+>>>>>>> 05882bc9ef16999b31ea1e643f48ba97a7c9ee8b
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
       </Stack.Navigator>
     )
   }

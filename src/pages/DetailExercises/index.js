@@ -5,7 +5,12 @@ import {useNavigation} from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import {formatNumber} from '../../utils/formatNumber';
 import {formatDate} from '../../utils/formatDate';
+<<<<<<< HEAD
 import firestore from '@react-native-firebase/firestore';
+=======
+import axios from 'axios';
+
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
 const DetailExercises = ({route}) => {
   const {exercisesId} = route.params;
   const [iconStates, setIconStates] = useState({
@@ -14,6 +19,10 @@ const DetailExercises = ({route}) => {
   });
   const [selectedExercises, setSelectedExercises] = useState(null);
   const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
   const actionSheetRef = useRef(null);
   const [modalVisible, setModalVisible] = useState(false);
   const openActionSheet = () => {
@@ -23,6 +32,7 @@ const DetailExercises = ({route}) => {
   const closeActionSheet = () => {
     actionSheetRef.current?.hide();
   };
+<<<<<<< HEAD
   useEffect(() => {
     const subscriber = firestore()
       .collection('exercises')
@@ -40,11 +50,31 @@ const DetailExercises = ({route}) => {
     return () => subscriber();
   }, [exercisesId]);
 
+=======
+
+  useEffect(() => {
+    getExercisesById();
+  }, [exercisesId]);
+
+  const getExercisesById = async () => {
+    try {
+      const response = await axios.get(
+        `https://656c291ce1e03bfd572e06b1.mockapi.io/exercises/${exercisesId}`,
+      );
+      setSelectedExercises(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
   const navigateEdit = () => {
     closeActionSheet()
     navigation.navigate('EditExercises', {exercisesId})
   }
   const handleDelete = async () => {
+<<<<<<< HEAD
     setLoading(true);
     try {
       await firestore()
@@ -67,6 +97,17 @@ const DetailExercises = ({route}) => {
       console.error(error);
     }
   };
+=======
+   await axios.delete(`https://656c291ce1e03bfd572e06b1.mockapi.io/exercises/${exercisesId}`)
+      .then(() => {
+        closeActionSheet()
+        navigation.navigate('Profile');
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
 
   const navigation = useNavigation();
   const scrollY = useRef(new Animated.Value(0)).current;
@@ -145,6 +186,10 @@ const DetailExercises = ({route}) => {
           </View>
           <Text style={styles.title}>{selectedExercises?.title}</Text>
           <Text style={styles.description}>{selectedExercises?.description}</Text>
+<<<<<<< HEAD
+=======
+          <Text style={styles.description}>{selectedExercises?.duration}</Text>
+>>>>>>> 72216da27aa111b3f397de55c22243be0eaa477f
         </Animated.ScrollView>
       )}
       <Animated.View
